@@ -57,28 +57,49 @@ namespace DataAccessLayer
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error, params SqlParameter[] param)
         {
             bool f = false;
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
-            comm.Parameters.Clear();
-            comm.CommandText = strSQL;
-            comm.CommandType = ct;
-            foreach (SqlParameter p in param)
-                comm.Parameters.Add(p);
-            try
+            using (SqlConnection conn = new SqlConnection(ConnStr))
             {
-                comm.ExecuteNonQuery();
-                f = true;
-            }
-            catch (SqlException ex)
-            {
-                error = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
+                using (SqlCommand comm = new SqlCommand(strSQL, conn))
+                {
+                    comm.CommandType = ct;
+                    comm.Parameters.AddRange(param);
+                    try
+                    {
+                        conn.Open();
+                        comm.ExecuteNonQuery();
+                        f = true;
+                    }
+                    catch (SqlException ex)
+                    {
+                        error = ex.Message;
+                    }
+                }
             }
             return f;
         }
+
+
+
+        public DataTable ExecuteQueryDataTable(string sql, CommandType type, params SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ConnStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.CommandType = type;
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
+
     }
 }

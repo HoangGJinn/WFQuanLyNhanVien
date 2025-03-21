@@ -19,17 +19,14 @@ namespace WFQuanLyNhanVien
 
         DataTable dtNhanVien = null;
         bool Them = false;
+        string previousMaNV = string.Empty; // Biến kiểm tra Mã NV trước đó
         public frmNhanVien()
         {
             InitializeComponent();
             dbnv = new DBNhanVien();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnAdd.Enabled = true;
-            btnEdit.Enabled = true;
-        }
+
 
         private void dgvNhanVien_OnSelectionChanged(object sender, EventArgs e)
         {
@@ -40,14 +37,27 @@ namespace WFQuanLyNhanVien
                 // Kiểm tra nếu DataGridView có dữ liệu
                 if (dgvNhanVien.Rows[r].Cells["MaNV"].Value != null)
                 {
-                    txtMaNV.Text = dgvNhanVien.Rows[r].Cells["MaNV"].Value.ToString();
-                    txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString(); // Đổi `HoTenDayDu` thành `HVTNV`
-                    txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("dd-MM-yyyy");
-                    txtDchi.Text = dgvNhanVien.Rows[r].Cells["Dchi"].Value.ToString();
-                    txtPhai.Text = dgvNhanVien.Rows[r].Cells["Phai"].Value.ToString();
-                    txtLuong.Text = dgvNhanVien.Rows[r].Cells["Luong"].Value.ToString();
-                    txtMaNQL.Text = dgvNhanVien.Rows[r].Cells["MaNQL"].Value.ToString();
-                    txtPhong.Text = dgvNhanVien.Rows[r].Cells["Phong"].Value.ToString();
+                    string currentMaNV = dgvNhanVien.Rows[r].Cells["MaNV"].Value.ToString();
+
+                    // So sánh Mã NV hiện tại với Mã NV trước đó
+                    if (currentMaNV != previousMaNV)
+                    {
+                        txtMaNV.Text = currentMaNV;
+                        txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString(); // Đổi `HoTenDayDu` thành `HVTNV`
+                        txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("dd-MM-yyyy");
+                        txtDchi.Text = dgvNhanVien.Rows[r].Cells["Dchi"].Value.ToString();
+                        txtPhai.Text = dgvNhanVien.Rows[r].Cells["Phai"].Value.ToString();
+                        txtLuong.Text = dgvNhanVien.Rows[r].Cells["Luong"].Value.ToString();
+                        txtMaNQL.Text = dgvNhanVien.Rows[r].Cells["MaNQL"].Value.ToString();
+                        txtPhong.Text = dgvNhanVien.Rows[r].Cells["Phong"].Value.ToString();
+                        panel2.Enabled = false;
+                        btnAdd.Enabled = true;
+                        btnEdit.Enabled = true;
+                        btnDel.Enabled = true;
+
+                        // Cập nhật Mã NV trước đó
+                        previousMaNV = currentMaNV;
+                    }
                 }
             }
         }
@@ -103,7 +113,7 @@ namespace WFQuanLyNhanVien
                 btnAdd.Enabled = true;
                 btnEdit.Enabled = true;
                 btnDel.Enabled = true;
-                btnExit.Enabled = true;
+                //btnExit.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -200,7 +210,7 @@ namespace WFQuanLyNhanVien
             this.btnAdd.Enabled = false;
             this.btnEdit.Enabled = false;
             this.btnDel.Enabled = false;
-            this.btnExit.Enabled = false;
+            //this.btnExit.Enabled = false;
             // Đưa con trỏ đến TextField txtMaNV
             this.txtMaNV.Focus();
         }
@@ -265,7 +275,7 @@ namespace WFQuanLyNhanVien
             this.btnAdd.Enabled = true;
             this.btnEdit.Enabled = true;
             this.btnDel.Enabled = true;
-            this.btnExit.Enabled = true;
+            //this.btnExit.Enabled = true;
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             this.btnSave.Enabled = false;
             this.btnDiscard.Enabled = false;
@@ -354,7 +364,7 @@ namespace WFQuanLyNhanVien
                 this.btnAdd.Enabled = false;
                 this.btnEdit.Enabled = false;
                 this.btnDel.Enabled = false;
-                this.btnExit.Enabled = false;
+                //this.btnExit.Enabled = false;
 
                 // Đưa con trỏ về TextBox Họ và Tên để chỉnh sửa
                 this.txtHVT.Focus();
@@ -365,15 +375,35 @@ namespace WFQuanLyNhanVien
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        { 
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) Application.Exit();
+
+        private void txtPhong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhai_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
