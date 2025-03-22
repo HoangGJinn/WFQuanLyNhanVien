@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtusername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtpassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnlogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,16 @@
             this.panel2.Size = new System.Drawing.Size(494, 118);
             this.panel2.TabIndex = 12;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WFQuanLyNhanVien.Properties.Resources.user__5_;
+            this.pictureBox2.Location = new System.Drawing.Point(18, 37);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -73,22 +83,10 @@
             this.label2.Location = new System.Drawing.Point(138, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
+            this.label2.Size = new System.Drawing.Size(124, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Invalid Username!";
             this.label2.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(62, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Username";
             // 
             // panel3
             // 
@@ -108,9 +106,21 @@
             this.txtusername.Location = new System.Drawing.Point(141, 46);
             this.txtusername.Margin = new System.Windows.Forms.Padding(2);
             this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(323, 20);
+            this.txtusername.Size = new System.Drawing.Size(323, 25);
             this.txtusername.TabIndex = 1;
             this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(62, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Username";
             // 
             // panel4
             // 
@@ -126,6 +136,16 @@
             this.panel4.Size = new System.Drawing.Size(494, 118);
             this.panel4.TabIndex = 13;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WFQuanLyNhanVien.Properties.Resources.key__1_;
+            this.pictureBox3.Location = new System.Drawing.Point(18, 39);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 35);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -134,23 +154,10 @@
             this.label3.Location = new System.Drawing.Point(138, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 15);
+            this.label3.Size = new System.Drawing.Size(122, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Invalid Password!";
             this.label3.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(66, 48);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Password";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel5
             // 
@@ -170,9 +177,22 @@
             this.txtpassword.Location = new System.Drawing.Point(141, 48);
             this.txtpassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(323, 20);
+            this.txtpassword.Size = new System.Drawing.Size(323, 25);
             this.txtpassword.TabIndex = 1;
             this.txtpassword.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(66, 48);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Password";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnlogin
             // 
@@ -197,7 +217,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(540, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(249, 31);
+            this.label5.Size = new System.Drawing.Size(314, 39);
             this.label5.TabIndex = 15;
             this.label5.Text = "Quản Lý Nhân Viên";
             // 
@@ -210,26 +230,6 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WFQuanLyNhanVien.Properties.Resources.user__5_;
-            this.pictureBox2.Location = new System.Drawing.Point(18, 37);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 37);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::WFQuanLyNhanVien.Properties.Resources.key__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 39);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 35);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -262,9 +262,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

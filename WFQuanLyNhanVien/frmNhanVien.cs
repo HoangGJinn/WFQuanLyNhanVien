@@ -18,49 +18,73 @@ namespace WFQuanLyNhanVien
         DBNhanVien dbnv;
 
         DataTable dtNhanVien = null;
-        bool Them = false;
+        private bool isAdding = false;
+        private bool isEditing = false;
         string previousMaNV = string.Empty; // Biến kiểm tra Mã NV trước đó
+
         public frmNhanVien()
         {
             InitializeComponent();
             dbnv = new DBNhanVien();
         }
 
-
+        // Hàm cài đặt trạng thái của các control
+        private void SetControlState(bool isEditingState)
+        {
+            panel2.Enabled = isEditingState;
+            btnSave.Enabled = isEditingState;
+            btnDiscard.Enabled = isEditingState;
+            btnAdd.Enabled = !isEditingState;
+            btnEdit.Enabled = !isEditingState;
+            btnDel.Enabled = !isEditingState;
+        }
 
         private void dgvNhanVien_OnSelectionChanged(object sender, EventArgs e)
         {
+            if ((isAdding || isEditing) && dgvNhanVien.CurrentRow != null)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Bạn có thay đổi chưa lưu. Bạn có muốn chuyển dòng mà không lưu không?",
+                    "Cảnh báo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+                //No
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                //Yes
+                isAdding = false;
+                isEditing = false;
+                SetControlState(false); 
+            }
+
+
             if (dgvNhanVien.CurrentRow != null)
             {
                 int r = dgvNhanVien.CurrentRow.Index;
-
-                // Kiểm tra nếu DataGridView có dữ liệu
                 if (dgvNhanVien.Rows[r].Cells["MaNV"].Value != null)
                 {
                     string currentMaNV = dgvNhanVien.Rows[r].Cells["MaNV"].Value.ToString();
-
-                    // So sánh Mã NV hiện tại với Mã NV trước đó
                     if (currentMaNV != previousMaNV)
                     {
                         txtMaNV.Text = currentMaNV;
-                        txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString(); // Đổi `HoTenDayDu` thành `HVTNV`
-                        txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("dd-MM-yyyy");
+                        txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString();
+                        txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("dd/MM/yyyy");
                         txtDchi.Text = dgvNhanVien.Rows[r].Cells["Dchi"].Value.ToString();
                         txtPhai.Text = dgvNhanVien.Rows[r].Cells["Phai"].Value.ToString();
                         txtLuong.Text = dgvNhanVien.Rows[r].Cells["Luong"].Value.ToString();
                         txtMaNQL.Text = dgvNhanVien.Rows[r].Cells["MaNQL"].Value.ToString();
                         txtPhong.Text = dgvNhanVien.Rows[r].Cells["Phong"].Value.ToString();
-                        panel2.Enabled = false;
-                        btnAdd.Enabled = true;
-                        btnEdit.Enabled = true;
-                        btnDel.Enabled = true;
+                        SetControlState(false);
 
-                        // Cập nhật Mã NV trước đó
                         previousMaNV = currentMaNV;
                     }
                 }
             }
         }
+
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
@@ -190,8 +214,8 @@ namespace WFQuanLyNhanVien
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Kich hoạt biến Them
-            Them = true;
+            // Kích hoạt chỉnh sửa
+            isAdding = true;
             // Xóa trống các đối tượng trong Panel
             this.txtMaNV.ResetText();
             this.txtHVT.ResetText();
@@ -202,21 +226,17 @@ namespace WFQuanLyNhanVien
             this.txtMaNQL.ResetText();
             this.txtPhong.ResetText();
 
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
-            this.btnSave.Enabled = true;
-            this.btnDiscard.Enabled = true;
-            this.panel2.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
-            this.btnAdd.Enabled = false;
-            this.btnEdit.Enabled = false;
-            this.btnDel.Enabled = false;
-            //this.btnExit.Enabled = false;
+            SetControlState(true);
             // Đưa con trỏ đến TextField txtMaNV
             this.txtMaNV.Focus();
+
+
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
+            isAdding = false;
+            isEditing = false; // Hủy chỉnh sửa
             LoadData();
         }
 
@@ -262,25 +282,26 @@ namespace WFQuanLyNhanVien
 
         private void btnDiscard_Click(object sender, EventArgs e)
         {
-            // Xóa trống các đối tượng trong Panel
-            this.txtMaNV.ResetText();
-            this.txtHVT.ResetText();
-            this.txtDchi.ResetText();
-            this.txtNgSinh.ResetText();
-            this.txtPhai.ResetText();
-            this.txtLuong.ResetText();
-            this.txtMaNQL.ResetText();
-            this.txtPhong.ResetText();
-            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
-            this.btnAdd.Enabled = true;
-            this.btnEdit.Enabled = true;
-            this.btnDel.Enabled = true;
-            //this.btnExit.Enabled = true;
-            // Không cho thao tác trên các nút Lưu / Hủy / Panel
-            this.btnSave.Enabled = false;
-            this.btnDiscard.Enabled = false;
-            this.panel2.Enabled = false;
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn hủy thao tác này?",
+                                                  "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                isAdding = false;
+                isEditing = false; // Hủy chỉnh sửa
+
+                txtMaNV.ResetText();
+                txtHVT.ResetText();
+                txtDchi.ResetText();
+                txtNgSinh.ResetText();
+                txtPhai.ResetText();
+                txtLuong.ResetText();
+                txtMaNQL.ResetText();
+                txtPhong.ResetText();
+
+                SetControlState(false);
+            }
         }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -316,12 +337,12 @@ namespace WFQuanLyNhanVien
             string tenNV = hoTenParts[hoTenParts.Length - 1];
             string tenLot = string.Join(" ", hoTenParts.Skip(1).Take(hoTenParts.Length - 2));
 
-            if (Them) // Thêm mới
+            if (isAdding) // Thêm mới
             {
                 success = dbnv.ThemNhanVien(ref err, txtMaNV.Text, hoNV, tenLot, tenNV, ngSinh, txtDchi.Text, txtPhai.Text, luong, txtMaNQL.Text, phong);
                 MessageBox.Show(success ? "Thêm nhân viên thành công!" : $"Thêm thất bại: {err}");
             }
-            else // Cập nhật
+            if (isEditing) // Cập nhật
             {
                 success = dbnv.CapNhatNhanVien(ref err, txtMaNV.Text, hoNV, tenLot, tenNV, ngSinh, txtDchi.Text, txtPhai.Text, luong, txtMaNQL.Text, phong);
                 MessageBox.Show(success ? "Cập nhật nhân viên thành công!" : $"Cập nhật thất bại: {err}");
@@ -329,14 +350,14 @@ namespace WFQuanLyNhanVien
 
             if (success)
             {
+                isAdding = false;
+                isEditing = false;
                 LoadData(); // Cập nhật lại DataGridView
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa
-            Them = false;
 
             // Cho phép thao tác trên Panel nhập liệu
             this.panel2.Enabled = true;
@@ -344,30 +365,8 @@ namespace WFQuanLyNhanVien
             // Kiểm tra nếu có dòng được chọn trong DataGridView
             if (dgvNhanVien.CurrentRow != null)
             {
-                int r = dgvNhanVien.CurrentCell.RowIndex; // Lấy chỉ mục dòng hiện tại
-
-                // Đưa dữ liệu từ DataGridView lên các TextBox
-                this.txtMaNV.Text = dgvNhanVien.Rows[r].Cells["MaNV"].Value.ToString();
-                this.txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString();
-                this.txtNgSinh.Text = dgvNhanVien.Rows[r].Cells["NgSinh"].Value.ToString();
-                this.txtDchi.Text = dgvNhanVien.Rows[r].Cells["Dchi"].Value.ToString();
-                this.txtPhai.Text = dgvNhanVien.Rows[r].Cells["Phai"].Value.ToString();
-                this.txtLuong.Text = dgvNhanVien.Rows[r].Cells["Luong"].Value.ToString();
-                this.txtMaNQL.Text = dgvNhanVien.Rows[r].Cells["MaNQL"].Value.ToString();
-                this.txtPhong.Text = dgvNhanVien.Rows[r].Cells["Phong"].Value.ToString();
-
-                // Cho phép thao tác trên nút Lưu / Hủy
-                this.btnSave.Enabled = true;
-                this.btnDiscard.Enabled = true;
-
-                // Không cho phép thao tác trên các nút Thêm / Xóa / Thoát
-                this.btnAdd.Enabled = false;
-                this.btnEdit.Enabled = false;
-                this.btnDel.Enabled = false;
-                //this.btnExit.Enabled = false;
-
-                // Đưa con trỏ về TextBox Họ và Tên để chỉnh sửa
-                this.txtHVT.Focus();
+                isEditing = true; // Đánh dấu đang chỉnh sửa
+                SetControlState(true);
             }
             else
             {

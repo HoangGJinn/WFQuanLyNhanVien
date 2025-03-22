@@ -75,7 +75,7 @@
             this.dgvPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhongBan.Size = new System.Drawing.Size(865, 526);
             this.dgvPhongBan.TabIndex = 1;
-            this.dgvPhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
+            this.dgvPhongBan.SelectionChanged += new System.EventHandler(this.dgvPhongBang_OnSelectionChanged);
             // 
             // MaPB
             // 
@@ -131,6 +131,7 @@
             this.btnDiscard.TabIndex = 18;
             this.btnDiscard.Text = "Discard";
             this.btnDiscard.UseVisualStyleBackColor = true;
+            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
             // 
             // btnSave
             // 
@@ -142,6 +143,7 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // btnEdit
             // 
@@ -152,6 +154,7 @@
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -162,6 +165,7 @@
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDel
             // 
@@ -173,6 +177,7 @@
             this.btnDel.TabIndex = 3;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnReload
             // 
@@ -183,6 +188,7 @@
             this.btnReload.TabIndex = 2;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // panel2
             // 
@@ -245,7 +251,6 @@
             this.txtMaPB.Name = "txtMaPB";
             this.txtMaPB.Size = new System.Drawing.Size(94, 20);
             this.txtMaPB.TabIndex = 24;
-            this.txtMaPB.TextChanged += new System.EventHandler(this.txtMaNV_TextChanged);
             // 
             // txtTenPB
             // 
@@ -264,7 +269,6 @@
             this.label3.Size = new System.Drawing.Size(49, 17);
             this.label3.TabIndex = 33;
             this.label3.Text = "Mã PB";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtNgNhanChuc
             // 
