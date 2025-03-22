@@ -30,7 +30,7 @@ namespace BusinessAccessLayer
                 new SqlParameter("@HoNV", hoNV),
                 new SqlParameter("@Tenlot", tenLot),
                 new SqlParameter("@TenNV", tenNV),
-                new SqlParameter("@NgSinh", ngSinh.Date),
+                new SqlParameter("@NgSinh", ngSinh.Date),   
                 new SqlParameter("@Dchi", dchi),
                 new SqlParameter("@Phai", phai),
                 new SqlParameter("@Luong", luong),

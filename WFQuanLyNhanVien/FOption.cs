@@ -60,5 +60,17 @@ namespace WFQuanLyNhanVien
             FrmPhongBang frmphongbang = new FrmPhongBang();
             LoadFormIntoPanel(frmphongbang);
         }
+
+        private void btnDuAn_Click(object sender, EventArgs e)
+        {
+            Frm_DuAn frmda = new Frm_DuAn();
+            LoadFormIntoPanel(frmda);
+
+        }
+        private void btnThanNhan_Click(object sender, EventArgs e)
+        {
+            frmThanNhan frmthannhan = new frmThanNhan();
+            LoadFormIntoPanel(frmthannhan);
+        }
     }
 }
