@@ -72,13 +72,13 @@
             this.TrPhong,
             this.NgNhanChuc});
             this.dgvPhongBan.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPhongBan.Location = new System.Drawing.Point(3, 0);
+            this.dgvPhongBan.Location = new System.Drawing.Point(3, 3);
             this.dgvPhongBan.Name = "dgvPhongBan";
             this.dgvPhongBan.ReadOnly = true;
             this.dgvPhongBan.RowHeadersWidth = 62;
             this.dgvPhongBan.RowTemplate.Height = 28;
             this.dgvPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhongBan.Size = new System.Drawing.Size(1281, 792);
+            this.dgvPhongBan.Size = new System.Drawing.Size(1281, 789);
             this.dgvPhongBan.TabIndex = 1;
             this.dgvPhongBan.SelectionChanged += new System.EventHandler(this.dgvPhongBang_OnSelectionChanged);
             // 
@@ -307,7 +307,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1608, 798);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Phòng Bang";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
