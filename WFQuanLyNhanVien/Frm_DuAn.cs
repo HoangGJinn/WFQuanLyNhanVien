@@ -68,5 +68,10 @@ namespace WFQuanLyNhanVien
                 txtPhong.Text = dgvDuAn.CurrentRow.Cells["Phong"].Value.ToString();
             }
         }
+
+        private void Frm_DuAn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
