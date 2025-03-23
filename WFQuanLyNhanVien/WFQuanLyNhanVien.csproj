@@ -175,11 +175,11 @@
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPhongBang.cs">
+    <Compile Include="FrmPhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPhongBang.Designer.cs">
-      <DependentUpon>FrmPhongBang.cs</DependentUpon>
+    <Compile Include="FrmPhongBan.Designer.cs">
+      <DependentUpon>FrmPhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_DuAn.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPhongBang.resx">
-      <DependentUpon>FrmPhongBang.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPhongBan.resx">
+      <DependentUpon>FrmPhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_DuAn.resx">
       <DependentUpon>Frm_DuAn.cs</DependentUpon>
