@@ -12,10 +12,15 @@ namespace WFQuanLyNhanVien
 {
     public partial class frmThanNhan : Form
     {
+        private bool IsAdding = false;
+        private bool isEditing = false;
+
         public frmThanNhan()
         {
             InitializeComponent();
             LoadData();
+            dgvThanNhan.SelectionChanged += dgvThanNhan_SelectionChanged;
+
         }
         private void LoadData() {
             try
@@ -39,6 +44,19 @@ namespace WFQuanLyNhanVien
                 MessageBox.Show($"Lỗi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            IsAdding = true;
+            isEditing = false;
+            txtManhanvien.Text = "";
+            txtTenThanNhan.Text = "";
+            txtGioiTinh.Text = "";
+            txtNgaySinh.Text = "";
+            txtQuanHe.Text = "";
+            txtManhanvien.Focus();
+        }
+
+
         private void dgvThanNhan_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvThanNhan.CurrentRow != null)
@@ -46,7 +64,7 @@ namespace WFQuanLyNhanVien
                 txtManhanvien.Text = dgvThanNhan.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtTenThanNhan.Text = dgvThanNhan.CurrentRow.Cells["TenTN"].Value.ToString();
                 txtGioiTinh.Text = dgvThanNhan.CurrentRow.Cells["Phai"].Value.ToString();
-                txtNgaySinh.Text = dgvThanNhan.CurrentRow.Cells["NgSinh"].Value.ToString();
+                txtNgaySinh.Text = dgvThanNhan.CurrentRow.Cells["NgaySinh"].Value.ToString();
                 txtQuanHe.Text = dgvThanNhan.CurrentRow.Cells["QuanHe"].Value.ToString();
             }
         }

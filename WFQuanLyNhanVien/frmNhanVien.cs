@@ -20,7 +20,6 @@ namespace WFQuanLyNhanVien
         DataTable dtNhanVien = null;
         private bool isAdding = false;
         private bool isEditing = false;
-        string previousMaNV = string.Empty; // Biến kiểm tra Mã NV trước đó
 
         public frmNhanVien()
         {
@@ -67,20 +66,15 @@ namespace WFQuanLyNhanVien
                 if (dgvNhanVien.Rows[r].Cells["MaNV"].Value != null)
                 {
                     string currentMaNV = dgvNhanVien.Rows[r].Cells["MaNV"].Value.ToString();
-                    if (currentMaNV != previousMaNV)
-                    {
                         txtMaNV.Text = currentMaNV;
                         txtHVT.Text = dgvNhanVien.Rows[r].Cells["HoTenDayDu"].Value.ToString();
-                        txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("dd/MM/yyyy");
+                        txtNgSinh.Text = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells["NgSinh"].Value).ToString("MM/dd/yyyy");
                         txtDchi.Text = dgvNhanVien.Rows[r].Cells["Dchi"].Value.ToString();
                         txtPhai.Text = dgvNhanVien.Rows[r].Cells["Phai"].Value.ToString();
                         txtLuong.Text = dgvNhanVien.Rows[r].Cells["Luong"].Value.ToString();
                         txtMaNQL.Text = dgvNhanVien.Rows[r].Cells["MaNQL"].Value.ToString();
                         txtPhong.Text = dgvNhanVien.Rows[r].Cells["Phong"].Value.ToString();
                         SetControlState(false);
-
-                        previousMaNV = currentMaNV;
-                    }
                 }
             }
         }
@@ -401,6 +395,11 @@ namespace WFQuanLyNhanVien
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

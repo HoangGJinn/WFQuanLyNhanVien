@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBDiaDiemPB.cs" />
     <Compile Include="DBDuAn.cs" />
     <Compile Include="DBNhanVien.cs" />
     <Compile Include="DBPhanCong.cs" />

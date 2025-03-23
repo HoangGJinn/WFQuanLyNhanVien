@@ -57,7 +57,7 @@ namespace WFQuanLyNhanVien
 
         private void btnPhongBang_Click(object sender, EventArgs e)
         {
-            FrmPhongBang frmphongbang = new FrmPhongBang();
+            FrmPhongBan frmphongbang = new FrmPhongBan();
             LoadFormIntoPanel(frmphongbang);
         }
 
