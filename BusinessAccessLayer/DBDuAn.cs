@@ -44,7 +44,7 @@ namespace BusinessAccessLayer
         public static DataSet LayDuAnTheoPhong(int Ma)
         {
             return db.ExecuteQueryDataSet("sp_LayDuAnTheoPhong", CommandType.StoredProcedure,
-                new System.Data.SqlClient.SqlParameter("@MaPB", Ma));
+                new System.Data.SqlClient.SqlParameter("@Phong", Ma));
         }
     }
 }

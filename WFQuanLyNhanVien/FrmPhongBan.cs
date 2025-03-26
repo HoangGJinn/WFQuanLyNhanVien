@@ -524,10 +524,15 @@ namespace WFQuanLyNhanVien
 
         private void dgvPhongBan_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // mở danh sách nhân viên thuộc phòng ban đó
-            //message box display name phongban
-            MessageBox.Show("Danh sách nhân viên thuộc phòng ban " + txtTenPB.Text);
+            //take the value of the first cell in the row
+            int maPB = int.Parse(dgvPhongBan.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Frm_DuAn frm = new Frm_DuAn();
+            DataSet data = DBDuAn.LayDuAnTheoPhong(maPB);
+            frm.ChangeDataSource(data.Tables[0]);
+            frm.Show();
+
 
         }
+
     }
 }

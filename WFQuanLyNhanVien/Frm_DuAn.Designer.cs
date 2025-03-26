@@ -73,9 +73,6 @@
             this.panel2.Controls.Add(this.txtPhong);
             this.panel2.Location = new System.Drawing.Point(3, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Controls.Add(this.txtLuong);
-            this.panel2.Controls.Add(this.txtMaNQL);
-            this.panel2.Controls.Add(this.txtDchi);
             this.panel2.Location = new System.Drawing.Point(3, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";

@@ -157,6 +157,10 @@ namespace WFQuanLyNhanVien
             }
             SetButtonControlState(false, new List<Button> { btnSave, btnDiscard });
         }
+        public void ChangeDataSource(DataTable dt)
+        {
+            dgvDuAn.DataSource = dt;
+        }
 
 
 
