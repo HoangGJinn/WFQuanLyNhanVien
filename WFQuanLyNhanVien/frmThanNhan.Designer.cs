@@ -1,6 +1,6 @@
 ﻿namespace WFQuanLyNhanVien
 {
-    partial class frmThanNhan
+    partial class FrmThanNhan
     {
         /// <summary>
         /// Required designer variable.

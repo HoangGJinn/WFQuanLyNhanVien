@@ -24,7 +24,8 @@ namespace WFQuanLyNhanVien
 
         private void FOption_Load(object sender, EventArgs e)
         {
-
+            FrmNhanVien frmnhanvien = new FrmNhanVien();
+            LoadFormIntoPanel(frmnhanvien);
         }
         private void LoadFormIntoPanel(Form form) //LOad Form Ở đây, Giải thích thôi chứ không cần đụng vào đây !
         {
@@ -51,7 +52,7 @@ namespace WFQuanLyNhanVien
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            frmNhanVien frmnhanvien = new frmNhanVien();
+            FrmNhanVien frmnhanvien = new FrmNhanVien();
             LoadFormIntoPanel(frmnhanvien);
         }
 
@@ -69,8 +70,30 @@ namespace WFQuanLyNhanVien
         }
         private void btnThanNhan_Click(object sender, EventArgs e)
         {
-            frmThanNhan frmthannhan = new frmThanNhan();
+            FrmThanNhan frmthannhan = new FrmThanNhan();
             LoadFormIntoPanel(frmthannhan);
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?",
+                "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+              
         }
     }
 }

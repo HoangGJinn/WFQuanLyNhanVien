@@ -60,7 +60,7 @@ namespace WFQuanLyNhanVien
                 txtusername.Enabled = false;
                 this.Hide(); // Ẩn form đăng nhập
 
-                frmNhanVien nhanvien = new frmNhanVien();
+                FrmNhanVien nhanvien = new FrmNhanVien();
                 nhanvien.ShowDialog(); // Chờ đến khi frmNhanVien đóng
 
                 this.Show(); // Hiển thị lại frmLogin nếu frmNhanVien bị đóng

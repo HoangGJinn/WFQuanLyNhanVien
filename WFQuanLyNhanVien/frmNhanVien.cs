@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace WFQuanLyNhanVien
 {
-    public partial class frmNhanVien : Form
+    public partial class FrmNhanVien : Form
     {
         DBNhanVien dbnv;
 
@@ -21,7 +21,7 @@ namespace WFQuanLyNhanVien
         private bool isAdding = false;
         private bool isEditing = false;
 
-        public frmNhanVien()
+        public FrmNhanVien()
         {
             InitializeComponent();
             dbnv = new DBNhanVien();

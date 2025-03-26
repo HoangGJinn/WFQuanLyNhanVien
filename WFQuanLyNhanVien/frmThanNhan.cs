@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using BusinessAccessLayer;
 namespace WFQuanLyNhanVien
 {
-    public partial class frmThanNhan : Form
+    public partial class FrmThanNhan : Form
     {
         private bool IsAdding = false;
         private bool isEditing = false;
 
-        public frmThanNhan()
+        public FrmThanNhan()
         {
             InitializeComponent();
             LoadData();

@@ -171,11 +171,11 @@
     <Compile Include="FOption.Designer.cs">
       <DependentUpon>FOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNhanVien.cs">
+    <Compile Include="FrmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNhanVien.Designer.cs">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    <Compile Include="FrmNhanVien.Designer.cs">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPhongBan.cs">
       <SubType>Form</SubType>
@@ -183,11 +183,11 @@
     <Compile Include="FrmPhongBan.Designer.cs">
       <DependentUpon>FrmPhongBan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThanNhan.cs">
+    <Compile Include="FrmThanNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThanNhan.Designer.cs">
-      <DependentUpon>frmThanNhan.cs</DependentUpon>
+    <Compile Include="FrmThanNhan.Designer.cs">
+      <DependentUpon>FrmThanNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_DuAn.cs">
       <SubType>Form</SubType>
@@ -211,14 +211,14 @@
     <EmbeddedResource Include="FOption.resx">
       <DependentUpon>FOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNhanVien.resx">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNhanVien.resx">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPhongBan.resx">
       <DependentUpon>FrmPhongBan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThanNhan.resx">
-      <DependentUpon>frmThanNhan.cs</DependentUpon>
+    <EmbeddedResource Include="FrmThanNhan.resx">
+      <DependentUpon>FrmThanNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_DuAn.resx">
       <DependentUpon>Frm_DuAn.cs</DependentUpon>
@@ -280,6 +280,12 @@
       <Project>{c9309e49-758e-4260-b401-b3f43f680dff}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
