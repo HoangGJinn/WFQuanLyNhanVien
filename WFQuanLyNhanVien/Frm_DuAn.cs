@@ -198,5 +198,25 @@ namespace WFQuanLyNhanVien
         {
 
         }
+
+        private void dgvDuAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtPhongg_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDchi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaDuAn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

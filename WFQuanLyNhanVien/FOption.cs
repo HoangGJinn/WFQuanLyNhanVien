@@ -67,5 +67,10 @@ namespace WFQuanLyNhanVien
             LoadFormIntoPanel(frmda);
 
         }
+        private void btnThanNhan_Click(object sender, EventArgs e)
+        {
+            frmThanNhan frmthannhan = new frmThanNhan();
+            LoadFormIntoPanel(frmthannhan);
+        }
     }
 }

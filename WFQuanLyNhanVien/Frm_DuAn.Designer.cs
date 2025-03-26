@@ -73,6 +73,11 @@
             this.panel2.Controls.Add(this.txtPhong);
             this.panel2.Location = new System.Drawing.Point(3, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Controls.Add(this.txtLuong);
+            this.panel2.Controls.Add(this.txtMaNQL);
+            this.panel2.Controls.Add(this.txtDchi);
+            this.panel2.Location = new System.Drawing.Point(3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1436, 167);
             this.panel2.TabIndex = 43;
@@ -105,9 +110,12 @@
             // 
             this.txtMaDuAn.Location = new System.Drawing.Point(37, 44);
             this.txtMaDuAn.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaDuAn.Location = new System.Drawing.Point(37, 44);
+            this.txtMaDuAn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaDuAn.Name = "txtMaDuAn";
             this.txtMaDuAn.Size = new System.Drawing.Size(89, 22);
             this.txtMaDuAn.TabIndex = 24;
+            this.txtMaDuAn.TextChanged += new System.EventHandler(this.txtMaDuAn_TextChanged);
             // 
             // label4
             // 
@@ -124,6 +132,8 @@
             // 
             this.txtTenDuAn.Location = new System.Drawing.Point(193, 44);
             this.txtTenDuAn.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenDuAn.Location = new System.Drawing.Point(193, 44);
+            this.txtTenDuAn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTenDuAn.Name = "txtTenDuAn";
             this.txtTenDuAn.Size = new System.Drawing.Size(127, 22);
             this.txtTenDuAn.TabIndex = 25;
@@ -132,6 +142,8 @@
             // 
             this.txtDiaDiem.Location = new System.Drawing.Point(391, 44);
             this.txtDiaDiem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiaDiem.Location = new System.Drawing.Point(391, 44);
+            this.txtDiaDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiaDiem.Name = "txtDiaDiem";
             this.txtDiaDiem.Size = new System.Drawing.Size(127, 22);
             this.txtDiaDiem.TabIndex = 26;
@@ -143,6 +155,8 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(45, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(42, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 33;
@@ -153,6 +167,8 @@
             // 
             this.txtPhong.Location = new System.Drawing.Point(585, 44);
             this.txtPhong.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhong.Location = new System.Drawing.Point(585, 44);
+            this.txtPhong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhong.Name = "txtPhong";
             this.txtPhong.Size = new System.Drawing.Size(127, 22);
             this.txtPhong.TabIndex = 27;
@@ -179,6 +195,7 @@
             this.dgvDuAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDuAn.Size = new System.Drawing.Size(1153, 647);
             this.dgvDuAn.TabIndex = 42;
+            this.dgvDuAn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuAn_CellContentClick);
             this.dgvDuAn.SelectionChanged += new System.EventHandler(this.dgvDuAn_SelectionChanged);
             // 
             // MaDA
