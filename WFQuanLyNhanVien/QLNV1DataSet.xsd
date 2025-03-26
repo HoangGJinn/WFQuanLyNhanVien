@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="QLNV1DataSet" targetNamespace="http://tempuri.org/QLNV1DataSet.xsd" xmlns:mstns="http://tempuri.org/QLNV1DataSet.xsd" xmlns="http://tempuri.org/QLNV1DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLNV1ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLNV1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WFQuanLyNhanVien.Properties.Settings.GlobalReference.Default.QLNV1ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DUANTableAdapter" GeneratorDataComponentClassName="DUANTableAdapter" Name="DUAN" UserDataComponentName="DUANTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLNV1ConnectionString (Settings)" DbObjectName="QLNV1.dbo.DUAN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Phong FROM dbo.DUAN</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Phong" DataSetColumn="Phong" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="QLNV1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="QLNV1DataSet" msprop:Generator_DataSetName="QLNV1DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DUAN" msprop:Generator_RowEvHandlerName="DUANRowChangeEventHandler" msprop:Generator_RowDeletedName="DUANRowDeleted" msprop:Generator_RowDeletingName="DUANRowDeleting" msprop:Generator_RowEvArgName="DUANRowChangeEvent" msprop:Generator_TablePropName="DUAN" msprop:Generator_RowChangedName="DUANRowChanged" msprop:Generator_RowChangingName="DUANRowChanging" msprop:Generator_TableClassName="DUANDataTable" msprop:Generator_RowClassName="DUANRow" msprop:Generator_TableVarName="tableDUAN" msprop:Generator_UserTableName="DUAN">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Phong" msprop:Generator_ColumnPropNameInRow="Phong" msprop:Generator_ColumnPropNameInTable="PhongColumn" msprop:Generator_ColumnVarNameInTable="columnPhong" msprop:Generator_UserColumnName="Phong" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,31 @@ namespace WFQuanLyNhanVien
         {
             InitializeComponent();
             LoadData();
+            //disable all textbot in panel 2
+            ReverstControlState(false);
+
+
+
         }
-        private void LoadData()
+        private void SetButtonControlState(bool state, List<Button> buttons)
+        {
+            foreach (Control control in panel1.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.Enabled = buttons.Contains(button) ? state : !state;
+                }
+            }
+        }
+
+        private void ReverstControlState(bool state)
+        {
+            txtMaDuAn.Enabled = state;
+            txtTenDuAn.Enabled = state;
+            txtDiaDiem.Enabled = state;
+            txtPhong.Enabled = state;
+        }
+        private void LoadData(bool theophong = false)
         {
             try
             {
@@ -70,6 +94,107 @@ namespace WFQuanLyNhanVien
         }
 
         private void Frm_DuAn_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qLNV1DataSet.DUAN' table. You can move, or remove it, as needed.
+            this.dUANTableAdapter.Fill(this.qLNV1DataSet.DUAN);
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            IsAdding = true;
+            isEditing = false;
+            ResetInputFields();
+            ReverstControlState(true);
+            SetButtonControlState(true, new List<Button> { btnSave, btnDiscard });
+        }
+
+        private void ResetInputFields()
+        {
+            txtMaDuAn.Text = "";
+            txtTenDuAn.Text = "";
+            txtDiaDiem.Text = "";
+            txtPhong.Text = "";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (IsAdding)
+            {
+                String err = "";
+                var ma = txtMaDuAn.Text;
+                var ten = txtTenDuAn.Text;
+                var diadiem = txtDiaDiem.Text;
+                var phong = int.Parse(txtPhong.Text);
+                if (DBDuAn.ThemDuAn(ref err, ma, ten, diadiem, phong))
+                {
+                    MessageBox.Show("Thêm dự án thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    ReverstControlState(false);
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi thêm dự án: {err}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (isEditing)
+            {
+                string err = "";
+                var ma = txtMaDuAn.Text;
+                var ten = txtTenDuAn.Text;
+                var diadiem = txtDiaDiem.Text;
+                var phong = int.Parse(txtPhong.Text);
+                if (DBDuAn.CapNhatDuAn(ref err, ma, ten, diadiem, phong))
+                {
+                    MessageBox.Show("Cập nhật dự án thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    ReverstControlState(false);
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi cập nhật dự án: {err}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            SetButtonControlState(false, new List<Button> { btnSave, btnDiscard });
+        }
+
+
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            String err = "";
+            var ma = txtMaDuAn.Text;
+            if (DBDuAn.XoaDuAn(ref err, ma))
+            {
+                MessageBox.Show("Xóa dự án thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show($"Lỗi xóa dự án: {err}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnDiscard_Click(object sender, EventArgs e)
+        {
+            IsAdding = false;
+            isEditing = false;
+            ResetInputFields();
+            ReverstControlState(false);
+            SetButtonControlState(false, new List<Button> { btnSave, btnDiscard });
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            isEditing = true;
+            IsAdding = false;
+            ReverstControlState(true);
+            SetButtonControlState(true, new List<Button> { btnSave, btnDiscard });
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

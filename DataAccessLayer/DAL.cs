@@ -11,7 +11,8 @@ namespace DataAccessLayer
 {
     public class DAL
     {
-        string ConnStr = "Data Source=(local);" + "Initial Catalog=QLNV1;Integrated Security=True";
+        string ConnStr = "Data Source=MSI\\HUY;" + "Initial Catalog=QLNV1;Integrated Security=True";
+        //string ConnStr = "Data Source=(local);" + "Initial Catalog=QLNV1;Integrated Security=True";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;

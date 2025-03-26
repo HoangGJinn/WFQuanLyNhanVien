@@ -521,5 +521,13 @@ namespace WFQuanLyNhanVien
                 if (result) LoadDataDiaDiem();
             }
         }
+
+        private void dgvPhongBan_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // mở danh sách nhân viên thuộc phòng ban đó
+            //message box display name phongban
+            MessageBox.Show("Danh sách nhân viên thuộc phòng ban " + txtTenPB.Text);
+
+        }
     }
 }

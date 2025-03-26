@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Net;
 using DataAccessLayer;
 
 namespace BusinessAccessLayer
@@ -38,6 +39,11 @@ namespace BusinessAccessLayer
         public static DataSet LayNhanVienTheoPhong(int Ma)
         {
             return db.ExecuteQueryDataSet("sp_LayNhanVienTheoPhong", CommandType.StoredProcedure,
+                new System.Data.SqlClient.SqlParameter("@MaPB", Ma));
+        }
+        public static DataSet LayDuAnTheoPhong(int Ma)
+        {
+            return db.ExecuteQueryDataSet("sp_LayDuAnTheoPhong", CommandType.StoredProcedure,
                 new System.Data.SqlClient.SqlParameter("@MaPB", Ma));
         }
     }
